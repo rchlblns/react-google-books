@@ -1,0 +1,30 @@
+{
+  "name": "react-google-books",
+  "version": "1.0.0",
+  "description": "A React based Google Books search application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "iall": "npm i && cd client && npm i",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm run start",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build:client": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rchlblns/react-google-books.git"
+  },
+  "author": "@rchlblns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rchlblns/react-google-books/issues"
+  },
+  "homepage": "https://github.com/rchlblns/react-google-books#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
