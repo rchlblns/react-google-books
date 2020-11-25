@@ -8,9 +8,10 @@
     "iall": "npm i && cd client && npm i",
     "server": "cd server && node index.js",
     "client": "cd client && npm run start",
-    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build:client": "cd client && npm run build",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
