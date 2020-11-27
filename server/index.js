@@ -11,6 +11,14 @@ app.get("/test", (req, res) => {
     res.send("Welcome to the backend of this app!");
 });
 
+// Serve static files from React frontend
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+// Send back index.html for any route that doesn't match routing
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..client/build/index.html"));
+})
+
 // port info
 const port = process.env.PORT || 3001;
 
