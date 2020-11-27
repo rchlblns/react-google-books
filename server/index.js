@@ -1,8 +1,10 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 // test route to make sure that we can reach the backend
 // will move to routes file after
 app.get("/test", (req, res) => {
