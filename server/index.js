@@ -4,11 +4,14 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 // const db = require("../models");
 const routes = require("../routes");
+const port = process.env.PORT || 3001;
 
 
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Connect to Mongo DB database
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
@@ -30,9 +33,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 })
 
-// port info
-const port = process.env.PORT || 3001;
-
+// Port info
 app.listen(port, () => {
     console.log(`🌎  ==> Api is now listening on port ${port}.`);
 });
