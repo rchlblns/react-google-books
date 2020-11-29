@@ -22,11 +22,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 // Serve static files from React frontend
 app.use(express.static(path.join(__dirname, "../client/build")));
 
+// Routing
 app.use(routes);
 
 // Wildcard route - Send back index.html for any route that doesn't match
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "..client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 })
 
 // port info
