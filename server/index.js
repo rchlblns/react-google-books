@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const db = require("../models");
+// const db = require("../models");
+const routes = require("../routes");
 
 
 const app = express();
@@ -18,26 +19,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
     console.log(`Database state: ${mongoose.connection.readyState}`);
 })
 
-// test route to make sure that we can reach the backend
-// will move to routes file after
-app.get("/test", (req, res) => {
-    res.send("Welcome to the backend of this app!");
-});
-
-// test retrieval of information from database
-app.get("/saved-books", (req, res) => {
-    db.Book
-        .find({})
-        // .toArray()
-        .then(results => {
-            res.status(200).send(results);
-        })
-})
-
 // Serve static files from React frontend
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-// Send back index.html for any route that doesn't match routing
+app.use(routes);
+
+// Wildcard route - Send back index.html for any route that doesn't match
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "..client/build/index.html"));
 })
