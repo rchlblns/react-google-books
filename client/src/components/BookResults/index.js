@@ -22,7 +22,6 @@ const BookResults = ({ id, title, authors, link, description, image, Button}) =>
             className="mr-3" />
           <Media.Body>
             <h4>{title}</h4>
-            {/* <span>{authors.join(", ")}</span> */}
             <span>{authors}</span>
             <p className="mt-3">{description}</p>
             <InfoButton href={link} target="_blank" rel="noreferrer noopener" variant="secondary">View on Google Books</InfoButton>{" "}

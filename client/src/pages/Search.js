@@ -9,7 +9,7 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import * as Scroll from "react-scroll";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller} from "react-scroll";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 
 const StyledToast = styled(ToastContainer).attrs({})`
     .Toastify__progress-bar--dark {
@@ -114,7 +114,7 @@ class Search extends Component {
                       key={book.id}
                       id={book.title}
                       title={book.volumeInfo.title}
-                      authors={book.volumeInfo.authors}
+                      authors={book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors}
                       description={book.volumeInfo.description}
                       image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x180"}
                       link={book.volumeInfo.infoLink}
