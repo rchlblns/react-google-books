@@ -37,7 +37,7 @@ const Jumbo = (props) => {
     return (
         <JumboHero fluid>
             <h1>Google Books Search</h1>
-            <h4>Search and Save Books of Interest</h4>
+            <h4>Find and Save Books of Interest</h4>
             <Form>
                 <Row className="align-items-center justify-content-center">
                     <Col xs={8} md={5}>

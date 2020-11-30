@@ -17,7 +17,7 @@ const ResponsiveNav = () => {
         <StyledNavbar collapseOnSelect expand="lg" variant="dark">
             <Navbar.Brand>
                 <NavLink to="/">
-                    Google Book Finder
+                    Google Books Search
                 </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
