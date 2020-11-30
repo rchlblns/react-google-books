@@ -1,23 +1,24 @@
 import React from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import Jumbotron from "../components/Jumbotron";
+import Navbar from "../components/Navbar";
 
 function NoMatch() {
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <Jumbotron>
+    <div>
+      <Navbar />
+      <Container>
+        <Row>
+          <Col size="md-12">
             <h1>404 Page Not Found</h1>
             <h1>
               <span role="img" aria-label="crying face emoji">
                 😭
               </span>
             </h1>
-          </Jumbotron>
-        </Col>
-      </Row>
-    </Container>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

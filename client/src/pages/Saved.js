@@ -55,7 +55,6 @@ class Saved extends Component {
                     hideProgressBar: false
                 });
                 this.getCollection();
-                // 
             }
             )
             .catch(err => console.log(err))
@@ -78,7 +77,7 @@ class Saved extends Component {
                                             key={book.googleId}
                                             id={book.title}
                                             title={book.title}
-                                            authors={book.authors.length > 1 ? book.authors.join(", ") : book.authors}
+                                            authors={book.authors.length > 0 ? book.authors.join(", ") : "Not Provided"}
                                             description={book.description}
                                             image={book.image}
                                             link={book.infoLink}

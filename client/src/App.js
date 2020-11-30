@@ -1,18 +1,9 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
+// import NoMatch from "./pages/NoMatch"
 import { createGlobalStyle } from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import logo from './logo.svg';
-// import axios from "axios";
-// import './App.css';
-
-// const hitBackend = () => {
-//   axios.get("/test")
-//     .then((res) => {
-//       console.log(res.data);
-//     })
-// }
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -31,30 +22,13 @@ h1,h4 {
 
 const App = () => {
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <button onClick={hitBackend}>Send request to the backend!</button>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
     <Router>
-      <div>
-        <GlobalStyle />
+      <GlobalStyle />
+      <Switch>
         <Route exact path="/" component={Search} />
         <Route exact path="/saved" component={Saved} />
         {/* <Route component={NoMatch} /> */}
-      </div>
+      </Switch>
     </Router>
   );
 }

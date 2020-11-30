@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 // Routing
 app.use(routes);
 
-// Wildcard route - Send back index.html for any route that doesn't match
+// Wildcard route - Send back index.html for any route not already defined
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 })

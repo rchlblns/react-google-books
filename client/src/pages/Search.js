@@ -28,12 +28,11 @@ class Search extends Component {
 
   handleInputChange = (event) => {
     event.preventDefault();
-    //sets state of search to current form input and replaces spaces with "+"
-    let query = event.target.value.replace(" ", "+");
+    //sets state of search to current form input, regex replaces all spaces with "+"
+    let query = event.target.value.replace(/\s/g, "+");
     this.setState({
       search: query
     });
-    console.log(query);
   };
 
   handleFormSubmit = (event) => {
@@ -44,10 +43,10 @@ class Search extends Component {
   getSearchResults = () => {
     API.getSearchResults(this.state.search)
       .then(res => {
-        console.log(res);
         this.setState({
           books: res.data.items
         });
+        console.log(this.state.books);
         this.scrollToResults();
 
       })
@@ -114,7 +113,7 @@ class Search extends Component {
                       key={book.id}
                       id={book.title}
                       title={book.volumeInfo.title}
-                      authors={book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors}
+                      authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Not Provided"}
                       description={book.volumeInfo.description}
                       image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x180"}
                       link={book.volumeInfo.infoLink}
