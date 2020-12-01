@@ -41,8 +41,13 @@ class Search extends Component {
     this.setState({
       loading: true
     })
-    this.getSearchResults();
+    this.showResults()
   };
+
+  showResults = () => {
+    this.getSearchResults();
+    this.scrollToResults();
+  }
 
   getSearchResults = () => {
     API.getSearchResults(this.state.search)
@@ -51,9 +56,7 @@ class Search extends Component {
           books: res.data.items,
           loading: false
         });
-        this.scrollToResults();
         // console.log(this.state.books);
-        
       })
       .catch(() =>
         this.setState({
@@ -67,12 +70,9 @@ class Search extends Component {
   scrollToResults = () => {
     scroller.scrollTo("scrollTarget", {
       duration: 500,
-      // delay: 1800,
+      delay: 650,
       smooth: true
     })
-    // this.setState({
-    //   loading: false
-    // })
   }
 
   handleBookSave = (event) => {
