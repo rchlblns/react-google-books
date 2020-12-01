@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap"
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner"
 import styled from "styled-components";
 import background from "../../images/pexels-marta-dzedyshko-2067569.jpg";
 
@@ -34,6 +35,9 @@ h1, h4 {
 `
 
 const Jumbo = (props) => {
+
+    console.log(props)
+
     return (
         <JumboHero fluid>
             <h1>Google Books Search</h1>
@@ -46,7 +50,7 @@ const Jumbo = (props) => {
                             value={props.search}
                             onChange={props.handleInputChange}
                             type="text"
-                            className="mb-2 text-center"
+                            className="mb-2 text-center mt-2"
                             id="inlineFormInput"
                             placeholder="Type in a title"
                         />
@@ -59,7 +63,7 @@ const Jumbo = (props) => {
                             variant="light"
                             onClick={props.handleFormSubmit}
                         >
-                            Search
+                            {props.loading ? <Spinner animation="border" size="sm" /> : "Search"}
                         </Button>
                     </Col>
                 </Row>

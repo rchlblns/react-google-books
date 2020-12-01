@@ -22,6 +22,7 @@ class Search extends Component {
   state = {
     search: "",
     books: [],
+    loading: false,
     error: "",
     message: ""
   };
@@ -37,6 +38,9 @@ class Search extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    this.setState({
+      loading: true
+    })
     this.getSearchResults();
   };
 
@@ -44,25 +48,31 @@ class Search extends Component {
     API.getSearchResults(this.state.search)
       .then(res => {
         this.setState({
-          books: res.data.items
+          books: res.data.items,
+          loading: false
         });
-        console.log(this.state.books);
         this.scrollToResults();
-
+        // console.log(this.state.books);
+        
       })
       .catch(() =>
         this.setState({
           books: [],
-          message: "Your search did not match any book results. Please try a different query."
-        }));
+          message: "Your search did not match any book results. Please try a different query.",
+          loading: false
+        })
+      );
   }
 
   scrollToResults = () => {
     scroller.scrollTo("scrollTarget", {
-      duration: 600,
-      delay: 1800,
+      duration: 500,
+      // delay: 1800,
       smooth: true
-    });
+    })
+    // this.setState({
+    //   loading: false
+    // })
   }
 
   handleBookSave = (event) => {
@@ -101,7 +111,9 @@ class Search extends Component {
         <Navbar />
         <Jumbotron
           handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.handleFormSubmit} />
+          handleFormSubmit={this.handleFormSubmit}
+          loading={this.state.loading}
+        />
         <Container>
           <Row id="scrollTarget">
             {this.state.books.length ? (
