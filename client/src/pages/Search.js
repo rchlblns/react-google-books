@@ -56,7 +56,6 @@ class Search extends Component {
           books: res.data.items,
           loading: false
         });
-        // console.log(this.state.books);
       })
       .catch(() =>
         this.setState({

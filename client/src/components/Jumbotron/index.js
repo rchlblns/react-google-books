@@ -35,9 +35,6 @@ h1, h4 {
 `
 
 const Jumbo = (props) => {
-
-    console.log(props)
-
     return (
         <JumboHero fluid>
             <h1>Google Books Search</h1>
