@@ -15,10 +15,11 @@ const DeleteBtn = (props) => {
         <DeleteButton
         type="button"
         variant="outline-light"
+        className="mb-2"
         id={props.id}
         onClick={props.handleBookDelete}
         >
-            Remove Book From Collection
+            Remove from Collection
         </DeleteButton> 
     )
 }

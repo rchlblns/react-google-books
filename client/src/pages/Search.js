@@ -124,9 +124,9 @@ class Search extends Component {
                       key={book.id}
                       id={book.title}
                       title={book.volumeInfo.title}
-                      authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Not Provided"}
+                      authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Author Not Provided"}
                       description={book.volumeInfo.description}
-                      image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x180"}
+                      image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/150x180?text=No+Image+Available"}
                       link={book.volumeInfo.infoLink}
                       Button={() => (
                         <SaveBtn

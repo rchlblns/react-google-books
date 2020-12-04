@@ -77,7 +77,7 @@ class Saved extends Component {
                                             key={book.googleId}
                                             id={book.title}
                                             title={book.title}
-                                            authors={book.authors.length > 0 ? book.authors.join(", ") : "Not Provided"}
+                                            authors={book.authors.length > 0 ? book.authors.join(", ") : "Author Not Provided"}
                                             description={book.description}
                                             image={book.image}
                                             link={book.infoLink}
